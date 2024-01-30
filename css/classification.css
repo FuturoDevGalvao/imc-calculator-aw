@@ -28,6 +28,7 @@
   text-align: center;
   padding: 4px;
   gap: 8px;
+  transition: 0.3s all;
 }
 
 .classification-card i {

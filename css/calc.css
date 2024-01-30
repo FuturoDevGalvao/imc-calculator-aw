@@ -49,7 +49,7 @@
   background-color: var(--input);
   color: var(--font-sec);
   border: 1px solid transparent;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 25px 20px 10px 20px;
   border-radius: 8px;
   outline: none;
@@ -67,8 +67,8 @@
 
 .box-input input:focus ~ label,
 .box-input input:not(:placeholder-shown) ~ label {
-  transform: translateY(-18px);
-  font-size: 1rem;
+  transform: translateY(-20px);
+  font-size: 1.1rem;
   left: 20px;
   transition: 0.3s;
 }
@@ -76,7 +76,7 @@
 .box-input label {
   position: absolute;
   left: 30px;
-  bottom: 14px;
+  bottom: 16px;
   font-size: 1.5rem;
   pointer-events: none;
   transition: 0.3s;
@@ -100,7 +100,7 @@
 .footer-calc button {
   width: 100%;
   font-size: 1.5rem;
-  padding: 13px;
+  padding: 17px;
   text-transform: uppercase;
   font-family: "Burbank";
   cursor: pointer;

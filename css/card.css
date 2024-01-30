@@ -16,7 +16,7 @@
 .result {
   width: 100%;
   height: 100%;
-  gap: 10px;
+  gap: 15px;
   flex-direction: column;
   position: relative;
 }
@@ -42,12 +42,18 @@
   align-items: center;
 }
 
+.imc-contain h2 {
+  line-height: 0.6;
+}
+
 #im-result {
   font-size: max(3rem, 3vw);
 }
 
 .imc-contain span {
   color: var(--font-sec);
+  font-weight: 500;
+  font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
 }
 
@@ -72,10 +78,11 @@
 
 .orientation-contain i {
   font-weight: 700;
+  color: var(--font-pri);
 }
 
 @media screen and (max-width: 800px) {
   #card-result {
-    top: 40%;
+    top: 20%;
   }
 }

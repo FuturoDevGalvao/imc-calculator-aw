@@ -21,6 +21,21 @@ const getCards = () => {
   };
 };
 
+const setDataResultCard = (imc) => {
+  getResultCard().imcText.textContent = imc;
+  getResultCard().orientationText.textContent = getOrientation();
+};
+
+const getOrientation = () => {
+  return window.innerWidth <= 800 ? "abaixo" : "ao lado";
+};
+
+const resetStyleCard = () => {
+  Object.values(getCards()).forEach((card) => {
+    card.element.style.backgroundColor = "transparent";
+  });
+};
+
 const setCardCalssification = (imc) => {
   const assoativeClassification = {
     belowWeight: getCards().cardBelowWeight,
@@ -51,22 +66,15 @@ const getInputs = () => {
     inputWeight: {
       element: document.getElementById("input-weight"),
       empty: true,
-      errMessage: getErrMessages().errMessageWeight,
+      errMessage: document.querySelector(".error-message-weight"),
     },
     inputHeight: {
       element: document.getElementById("input-height"),
       empty: true,
-      errMessage: getErrMessages().errMessageHeight,
+      errMessage: document.querySelector(".error-message-height"),
     },
   };
 };
-
-/* 
-  console.log(
-    "peso vazio: " + inputWeight.empty,
-    "altura vazia: " + inputHeight.empty
-  );
-*/
 
 const validateInputs = () => {
   let isValidated = true;
@@ -119,24 +127,19 @@ const setVisibilityMessageErr = (inputWeight, inputHeight) => {
   });
 };
 
-const getErrMessages = () => {
-  return {
-    errMessageWeight: document.querySelector(".error-message-weight"),
-    errMessageHeight: document.querySelector(".error-message-height"),
-  };
-};
-
 const calculateImc = () => {
   calculationAttempt = true;
   const isValidated = validateInputs();
 
   if (isValidated) {
-    const weight = getInputs().inputWeight.element.value;
-    const height = getInputs().inputHeight.element.value;
+    const weight = getInputs().inputWeight.element.value.replace(",", ".");
+    const height = getInputs().inputHeight.element.value.replace(",", ".");
 
     const imc = (weight / height ** 2).toFixed(1);
 
+    resetStyleCard();
     setCardCalssification(imc);
+    setDataResultCard(imc);
     showResultCard();
   }
 };
@@ -146,24 +149,12 @@ const setContentInputSituation = (inputWeight, inputHeight) => {
   inputHeight.empty = isEmpty(inputHeight.element);
 };
 
-const addListenerForInputs = () => {
-  const { inputWeight, inputHeight } = getInputs();
-
-  const inputs = [inputWeight, inputHeight];
-
-  inputs.forEach((input) => {
-    input.element.addEventListener("input", () => {
-      setContentInputSituation(inputWeight, inputHeight);
-      removeErrorStyle(input);
-      if (calculationAttempt) setVisibilityMessageErr(inputWeight, inputHeight);
-    });
-  });
-};
-
 const getResultCard = () => {
   return {
     element: document.getElementById("card-result"),
     btnClose: document.getElementById("btn-close-card"),
+    imcText: document.getElementById("im-result"),
+    orientationText: document.getElementById("orientation"),
   };
 };
 
@@ -179,9 +170,28 @@ const hideResultCard = () => {
   resultCard.style.left = "-30rem";
 };
 
-document.getElementById("btn-calc").addEventListener("click", calculateImc);
-getResultCard().element.addEventListener("click", hideResultCard);
+const addListenerInButtons = () => {
+  document.getElementById("btn-calc").addEventListener("click", calculateImc);
+  getResultCard().btnClose.addEventListener("click", hideResultCard);
+};
+
+const addListenerInInputs = () => {
+  const { inputWeight, inputHeight } = getInputs();
+
+  const inputs = [inputWeight, inputHeight];
+
+  inputs.forEach((input) => {
+    input.element.addEventListener("input", () => {
+      resetStyleCard();
+      hideResultCard();
+      setContentInputSituation(inputWeight, inputHeight);
+      removeErrorStyle(input);
+      if (calculationAttempt) setVisibilityMessageErr(inputWeight, inputHeight);
+    });
+  });
+};
 
 window.onload = () => {
-  addListenerForInputs();
+  addListenerInButtons();
+  addListenerInInputs();
 };
