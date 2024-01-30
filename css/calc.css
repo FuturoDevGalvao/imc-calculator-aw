@@ -1,0 +1,128 @@
+@import "variables.css";
+
+.calc {
+  height: 100%;
+  padding: 10px;
+  width: 50%;
+  /*   border: 1px solid green;
+ */
+}
+
+.header-calc {
+  flex-direction: column;
+  gap: 15px;
+  /*   border: 1px solid yellow;
+ */
+  text-align: justify;
+}
+
+.header-calc h1 {
+  font-size: max(2.8rem, 3vw);
+  text-transform: uppercase;
+}
+
+.header-calc p {
+  font-size: max(0.8rem, 1vw);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--font-sec);
+}
+
+.body-calc {
+  padding: 30px 0;
+  flex-direction: column;
+  gap: 10px;
+  /*   border: 1px solid yellowgreen;
+ */
+}
+
+.box-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.box-input input {
+  width: 100%;
+  height: 100%;
+  background-color: var(--input);
+  color: var(--font-sec);
+  border: 1px solid transparent;
+  font-size: 1rem;
+  padding: 25px 20px 10px 20px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.box-input input::placeholder {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.box-input input:focus::placeholder {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.box-input input:focus ~ label,
+.box-input input:not(:placeholder-shown) ~ label {
+  transform: translateY(-18px);
+  font-size: 1rem;
+  left: 20px;
+  transition: 0.3s;
+}
+
+.box-input label {
+  position: absolute;
+  left: 30px;
+  bottom: 14px;
+  font-size: 1.5rem;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.error {
+  border: 1px solid var(--obesity) !important;
+}
+
+.error-message {
+  width: 50%;
+  margin-left: 5px;
+  gap: 10px;
+  color: var(--obesity);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.1rem;
+  opacity: 0;
+  transition: 0.2s all;
+}
+
+.footer-calc button {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 13px;
+  text-transform: uppercase;
+  font-family: "Burbank";
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  color: var(--font-pri);
+  background-color: var(--button);
+  transition: 0.2s;
+  letter-spacing: 0.05rem;
+}
+
+.footer-calc button:hover {
+  background-color: #2a7ffd;
+  letter-spacing: 0.2rem;
+  transition: 0.2s;
+}
+
+@media screen and (max-width: 800px) {
+  .calc {
+    width: 90%;
+  }
+  .error-message {
+    width: 100%;
+  }
+}

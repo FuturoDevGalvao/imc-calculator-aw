@@ -1,0 +1,17 @@
+:root {
+  --bg: #121317;
+  --input: #2c2d31;
+  --input-hover: #45464d;
+  --font-pri: aliceblue;
+  --font-sec: #c0c0c0;
+  --below-weight: #784087;
+  --normal: #1cbe62;
+  --over-weight: #f89c26;
+  --obesity: #d7171f;
+  --button: #0b62e4;
+}
+
+@font-face {
+  font-family: "Burbank";
+  src: url("../font/Burbank\ Big\ Condensed\ Black.otf");
+}
