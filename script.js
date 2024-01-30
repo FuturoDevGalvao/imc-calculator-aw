@@ -2,11 +2,48 @@ let calculationAttempt = false;
 
 const getCards = () => {
   return {
-    cardBelowWeight: document.querySelector(".below-weight"),
-    cardNormal: document.querySelector(".normal"),
-    cardOverWeight: document.querySelector(".over-weight"),
-    cardObesity: document.querySelector(".obesity"),
+    cardBelowWeight: {
+      element: document.querySelector(".below-weight"),
+      bg: "var(--below-weight)",
+    },
+    cardNormal: {
+      element: document.querySelector(".normal"),
+      bg: "var(--normal)",
+    },
+    cardOverWeight: {
+      element: document.querySelector(".over-weight"),
+      bg: "var(--over-weight)",
+    },
+    cardObesity: {
+      element: document.querySelector(".obesity"),
+      bg: "var(--obesity)",
+    },
   };
+};
+
+const setCardCalssification = (imc) => {
+  const assoativeClassification = {
+    belowWeight: getCards().cardBelowWeight,
+    normal: getCards().cardNormal,
+    overWeight: getCards().cardOverWeight,
+    obesity: getCards().cardObesity,
+  };
+
+  const cardToSet = assoativeClassification[getClassification(imc)];
+
+  cardToSet.element.style.background = cardToSet.bg;
+};
+
+const getClassification = (imc) => {
+  if (imc < 18.5) {
+    return "belowWeight";
+  } else if (imc <= 24.9) {
+    return "normal";
+  } else if (imc <= 30) {
+    return "overWeight";
+  } else {
+    return "obesity";
+  }
 };
 
 const getInputs = () => {
@@ -99,7 +136,7 @@ const calculateImc = () => {
 
     const imc = (weight / height ** 2).toFixed(1);
 
-    console.log("Your imc is: " + imc);
+    setCardCalssification(imc);
     showResultCard();
   }
 };
