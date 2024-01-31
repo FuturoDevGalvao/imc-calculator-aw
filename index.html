@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/calc.css" />
     <link rel="stylesheet" href="./css/classification.css" />
@@ -13,12 +22,6 @@
       src="https://kit.fontawesome.com/638bd1bffb.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
     <title>IMC CALCULATOR</title>
   </head>
   <body class="center">
@@ -41,10 +44,10 @@
             />
             <label for="">Peso</label>
           </div>
-          <span class="error-message error-message-weight v-center"
-            ><i class="fa-solid fa-circle-exclamation"></i>preencha o campo
-            acima</span
-          >
+          <span class="error-message error-message-weight v-center">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            preencha o campo acima
+          </span>
 
           <div class="box-input">
             <input
@@ -55,10 +58,10 @@
             />
             <label for="">Altura</label>
           </div>
-          <span class="error-message error-message-height v-center"
-            ><i class="fa-solid fa-circle-exclamation"></i> preencha o campo
-            acima</span
-          >
+          <span class="error-message error-message-height v-center">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            preencha o campo acima
+          </span>
         </div>
         <div class="footer-calc center">
           <button id="btn-calc" type="button">calcular</button>
@@ -112,6 +115,25 @@
       </div>
     </div>
 
+    <footer class="center">
+      <p>
+        make with
+        <lord-icon
+          src="https://cdn.lordicon.com/jjoolpwc.json"
+          trigger="loop"
+          delay="1000"
+          colors="primary:#f73d93,secondary:#f73d93"
+          style="width: 30px; height: 30px; padding-top: 8px"
+        >
+        </lord-icon>
+        by
+        <a href="https://github.com/FuturoDevGalvao" target="_blank">
+          FuturoDevGalvao
+        </a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

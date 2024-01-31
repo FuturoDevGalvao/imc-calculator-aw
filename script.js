@@ -135,7 +135,7 @@ const calculateImc = () => {
     const weight = getInputs().inputWeight.element.value.replace(",", ".");
     const height = getInputs().inputHeight.element.value.replace(",", ".");
 
-    const imc = (weight / height ** 2).toFixed(1);
+    const imc = (weight / height ** 2).toFixed(2);
 
     resetStyleCard();
     setCardCalssification(imc);

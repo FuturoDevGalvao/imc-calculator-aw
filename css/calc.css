@@ -4,16 +4,14 @@
   height: 100%;
   padding: 10px;
   width: 50%;
-  /*   border: 1px solid green;
- */
 }
 
 .header-calc {
   flex-direction: column;
   gap: 15px;
-  /*   border: 1px solid yellow;
- */
   text-align: justify;
+  animation-name: bounceInDown;
+  animation-duration: 1.2s;
 }
 
 .header-calc h1 {
@@ -32,8 +30,6 @@
   padding: 30px 0;
   flex-direction: column;
   gap: 10px;
-  /*   border: 1px solid yellowgreen;
- */
 }
 
 .box-input {
@@ -53,6 +49,8 @@
   padding: 25px 20px 10px 20px;
   border-radius: 8px;
   outline: none;
+  animation-name: flipInX;
+  animation-duration: 1.2s;
 }
 
 .box-input input::placeholder {
@@ -80,6 +78,8 @@
   font-size: 1.5rem;
   pointer-events: none;
   transition: 0.3s;
+  animation-name: flipInX;
+  animation-duration: 1.2s;
 }
 
 .error {
@@ -110,6 +110,8 @@
   background-color: var(--button);
   transition: 0.2s;
   letter-spacing: 0.05rem;
+  animation-name: flipInX;
+  animation-duration: 1.2s;
 }
 
 .footer-calc button:hover {
